@@ -59,7 +59,7 @@ Las fórmulas y coeficientes de mezcla utilizados en la calculadora fueron propo
 ## 🚀 Cómo usarlo
 
 1. **Descarga o clona** este repositorio en tu dispositivo.
-2. **Abre el archivo** `index.html` en cualquier navegador web moderno (Chrome, Firefox, Edge, Safari).
+2. **Abre el archivo** `CalcGym.ink` o `index.html` en cualquier navegador web moderno (Chrome, Firefox, Edge, Safari).
 3. **¡Listo!** No requiere instalación, configuración de servidores ni conexión a internet para funcionar.
 
 ---
