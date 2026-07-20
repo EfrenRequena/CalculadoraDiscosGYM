@@ -36,7 +36,7 @@ class CalculadoraDiscos {
         const pesoStr = this.inputPeso.value.trim();
         const peso = parseFloat(pesoStr);
 
-        // Validaciones (mismas reglas que tu PHP original)
+        // Validaciones
         if (peso === 0 || pesoStr === ''){
             this.mostrarError('¿Un disco de 0 kg? Para levantar aire no necesitas cemento.');
             return;
