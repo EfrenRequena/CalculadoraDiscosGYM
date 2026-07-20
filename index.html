@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Discos :3</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+   <!-- Capa para el efecto de entrada (Overlay) -->
+    <div class="overlay-glitch"></div>
+    <!-- VISTA 1: INICIO -->
+    <section id="vista-inicio" class="vista activa">
+        <h2>Calculadora para Discos de Concreto</h2>
+        <p>Ingrese el peso de su disco (kg)</p>
+        
+        <form id="form-calculo" class="entrada">
+            <input type="text" id="pesoDisco" placeholder="Ej: 50" step="0.1" required />
+            <button type="submit">Calcular</button> 
+        </form>
+
+        <div class="card">
+            <img src="MEDIA/pixelman.svg" alt="pixelman" class="res_pixelman" decoding="async">
+        </div>
+
+        <button id="btn-ir-creditos" class="btn-creditos">Créditos</button>
+    </section>
+
+    <!-- VISTA 2: RESULTADOS -->
+    <section id="vista-resultados" class="vista">
+        <div class="contenedor-resultados" id="resultado-contenido">
+            <!-- Aquí el JS inyectará la receta o el error -->
+        </div>
+
+        <button id="btn-regresar">Regresar</button>
+
+        <div class="card">
+            <img src="MEDIA/pixelman.svg" alt="pixelman" class="res_pixelman" decoding="async">
+        </div>
+    </section>
+
+    <!-- VISTA 3: CRÉDITOS -->
+    <section id="vista-creditos" class="vista">
+        <h1>Proyecto Educativo</h1>
+        
+        <div class="creditos">
+            <h2>Créditos:</h2>
+            <p>
+                <strong>Diseño y Programación:</strong><br>
+                Efren Requena<br>
+                <strong>Diseño de Mezcla:</strong><br>
+                Ing. Andrés Texeira<br>
+                 <strong>Dibujo hecho por:</strong><br>
+                Efren Requena<br>
+                <strong>Filtro Pixel y Vectorizado:</strong><br>
+                pixelartvillage.com & vectorizer.com
+            </p>
+        </div>
+
+        <div class="card">
+            <img src="MEDIA/pixelman.svg" alt="pixelman" class="res_pixelman" decoding="async">
+        </div>
+
+        <button id="btn-regresar-creditos" class="btn-creditos">Regresar</button>
+    </section>
+
+    <!-- Cargamos la lógica POO al final -->
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+/* ========================================
+   FUENTE GLOBAL PARA TODO
+   ======================================== */
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* 1. PANTALLA RETRO GLOBAL 
+
+*/
+/* FONDO BASE - Siempre cubre todo */
+html {
+    background-color: #1a1a1a;
+    min-height: 100%;
+
+
+}
+
+body {
+    background-color: transparent; /* O déjalo en #1a1a1a, no importa */
+     color: white;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    min-height: 100vh;
+
+}
+
+/* EFECTO CRT - Solo cubre la pantalla visible */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%);
+    background-size: 100% 4px;
+    z-index: 999;
+    pointer-events: none;
+}
+
+/* 2. SISTEMA DE VISTAS (SPA) */
+.vista {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    animation: entrada-vista 0.6s ease-out forwards;
+}
+
+.vista.activa {
+    display: flex; /* Solo la activa se muestra */
+}
+
+/* 3. FORMULARIOS Y ENTRADAS */
+.entrada {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    gap: 15px;
+    position: relative;
+    z-index: 20;
+    margin-bottom: 20px;
+}
+
+.entrada input {
+    text-align: center; 
+    color: white;
+    background: linear-gradient(#1a1a1a, #1a1a1a) padding-box,
+                linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8) border-box;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    padding: 15px;
+    outline: none;
+    background-size: 400% 400%;
+    font-size: 1.1rem;
+    animation: rgb-move 10s linear infinite;
+    transition: box-shadow 0.3s ease;
+}
+
+.entrada input:focus {
+    box-shadow: 0 0 20px rgba(0, 255, 213, 0.4);
+}
+
+/* 4. BOTONES */
+button {
+    padding: 12px 35px;
+    font-size: 16px;
+    background-color: white;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 30;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #00ffd5;
+    transform: scale(1.05);
+    box-shadow: 3px 0 0 rgba(255, 0, 0, 0.7), -3px 0 0 rgba(0, 255, 255, 0.7);
+}
+
+/* 5. CONTENEDOR DE RESULTADOS *//* 5. CONTENEDOR DE RESULTADOS */
+.contenedor-resultados {
+    background-color: #2b2b2b;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 1.8;
+    width: 90%;
+    max-width: 450px;
+    margin-bottom: 15px;
+    border: 3px solid transparent;
+    background: linear-gradient(#2b2b2b, #2b2b2b) padding-box,
+                linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8) border-box;
+    background-size: 400% 400%;
+    position: relative;
+    z-index: 10;
+    animation: rgb-move 10s linear infinite, entrada-suave 0.6s ease-out forwards;
+}
+
+.error-msg {
+    color: #ff4444;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000;
+}
+
+/* 6. PIXELMAN */
+.card {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 30px;
+    position: relative;
+    z-index: 5;
+    min-height: 200px;
+}
+
+.res_pixelman {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    image-rendering: pixelated;
+    animation: flotar 3s ease-in-out infinite, 
+               aberracion-pixelman 3s ease-in-out infinite;
+}
+
+/* 7. CRÉDITOS */
+.creditos {
+    text-align: center;
+    line-height: 1.6;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 400px;
+}
+
+.btn-creditos {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.btn-creditos:hover {
+    background-color: #555;
+}
+
+/* 8. KEYFRAMES CORREGIDOS (Separados de forma independiente) */
+@keyframes aberracion-pixelman {
+    0%, 100% { filter: drop-shadow(1px 0 0 rgba(255,0,0,0.5)) drop-shadow(-1px 0 0 rgba(0,255,255,0.5)); }
+    50% { filter: drop-shadow(5px 0 0 rgba(255,0,0,0.8)) drop-shadow(-5px 0 0 rgba(0,255,255,0.8)); }
+}
+
+@keyframes aberracion-reactiva {
+    0%, 100% { text-shadow: 1px 0 0 rgba(255,0,0,0.5), -1px 0 0 rgba(0,255,255,0.5); transform: translateY(0); }
+    50% { text-shadow: 4px 0 0 rgba(255,0,0,0.7), -4px 0 0 rgba(0,255,255,0.7); transform: translateY(-3px); }
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); filter: brightness(1); }
+    50% { transform: translateY(-15px); filter: brightness(1.2); }
+}
+
+@keyframes entrada-pixelada {
+    0% { opacity: 0; filter: blur(20px) contrast(200%); transform: scale(1.1); }
+    100% { opacity: 1; filter: blur(0) contrast(100%); transform: scale(1); }
+}
+
+@keyframes entrada-suave {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animación RGB independiente y funcional */
+@keyframes rgb-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes rgb-animacion {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pulso-fondo {
+    0%, 100% { background-color: #1a1a1a; }
+    50% { background-color: #1e1e1e; }
+}
+
+@keyframes entrada-vista {
+    0% { 
+        opacity: 0; 
+        transform: scale(1.05) translateY(10px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+
+/* ========================================
+   OVERLAY PARA EFECTO DE ENTRADA
+   ======================================== */
+.overlay-glitch {
+    position: fixed;
+    inset: 0; /* Ocupa toda la pantalla */
+    background-color: #1a1a1a; /* Color de fondo inicial */
+    z-index: 9999; /* Siempre por encima de todo */
+    pointer-events: none; /* ¡CRUCIAL! Permite hacer clic a través de él */
+    
+    /* La animación */
+    animation: efecto-entrada-glitch 1.2s steps(10) forwards;
+}
+
+@keyframes efecto-entrada-glitch {
+    0% {
+        opacity: 1;
+        filter: blur(15px) contrast(150%);
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0; /* Se vuelve invisible al final */
+        filter: blur(0) contrast(100%);
+        transform: scale(1);
+        visibility: hidden; /* Desaparece del DOM visual para no estorbar */
+    }
+}
+
+
+/* ========================================
+   ADAPTACIÓN PARA ESCRITORIO Y TABLETS
+   ======================================== */
+
+/* Tablets y laptops pequeñas (768px en adelante) */
+@media (min-width: 768px) {
+    .vista {
+        max-width: 700px; /* Aumentamos el ancho máximo */
+    }
+
+    h2 {
+        font-size: 2rem; /* Título más grande */
+    }
+
+    p {
+        font-size: 1.2rem; /* Texto más legible */
+    }
+
+    .entrada input {
+        font-size: 1.3rem;
+        padding: 18px;
+    }
+
+    button {
+        font-size: 1.1rem;
+        padding: 14px 40px;
+    }
+
+    .contenedor-resultados {
+        padding: 40px;
+        font-size: 1.2rem;
+        line-height: 2;
+    }
+
+
+    .creditos {
+        font-size: 1.1rem;
+        padding: 30px;
+    }
+}
+
+/* Escritorio grande y 4K (1200px en adelante) */
+@media (min-width: 1200px) {
+    .vista {
+        max-width: 900px; /* Aún más ancho en pantallas grandes */
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    p {
+        font-size: 1.4rem;
+    }
+
+    .entrada input {
+        font-size: 1.5rem;
+        padding: 20px;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 16px 50px;
+    }
+
+    .contenedor-resultados {
+        padding: 50px;
+        font-size: 1.4rem;
+        line-height: 2.2;
+    }
+
+
+    .creditos {
+        font-size: 1.3rem;
+        padding: 40px;
+    }
+}
+
+/* Ajuste adicional para el input en escritorio */
+@media (min-width: 768px) {
+    .entrada input {
+        max-width: 500px; /* Input más ancho en escritorio */
+    }
+}
