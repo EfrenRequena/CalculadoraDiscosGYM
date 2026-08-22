@@ -720,7 +720,7 @@ button:hover {
     } /* <-- Faltaba cerrar esta llave correctamente antes del botón */
 
     .boton-regreso {
-    position: relative;
+    position: absolute;
     bottom: 20%;
     left: 50%;
     z-index: 1000;
