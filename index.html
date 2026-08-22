@@ -27,17 +27,55 @@
         <button id="btn-ir-creditos" class="btn-creditos">Créditos</button>
     </section>
 
-    <!-- VISTA 2: RESULTADOS -->
+<!-- VISTA 2: RESULTADOS -->
     <section id="vista-resultados" class="vista">
-        <div class="contenedor-resultados" id="resultado-contenido">
-            <!-- Aquí el JS inyectará la receta o el error -->
-        </div>
 
-        <button id="btn-regresar">Regresar</button>
-
-        <div class="card">
-            <img src="MEDIA/pixelman.svg" alt="pixelman" class="res_pixelman" decoding="async">
+            <!-- NUEVO: Marquesina de Consejos -->
+        <div class="cinema-ticker-container">
+            <div class="cinema-ticker" id="texto-consejo">
+                <!-- El texto se inyectará aquí con JS -->
+            </div>
         </div>
+        
+        <!-- NUEVO CONTENEDOR AGRUPADOR -->
+        <div class="layout-resultados">
+            
+            <!-- Elemento 1: La Receta -->
+            <div class="contenedor-resultados" id="resultado-contenido">
+                <!-- Aquí el JS inyectará la receta o el error -->
+            </div>
+
+            <!-- Elemento 2: Pixelman -->
+            <div class="card">
+                <img src="MEDIA/pixelman.svg" alt="pixelman" class="res_pixelman" decoding="async">
+            </div>
+
+            <!-- Elemento 3: Visualizador del Molde Isométrico -->
+            <div class="molde-container">
+                <h3 class="titulo-molde">VISTA DEL MOLDE</h3>
+                <div class="escena-3d">
+                    <div class="cota-diametro">
+                        <span class="linea-cota"></span>
+                        <span class="texto-cota">Ø Diametro: <strong id="dato-diametro">--</strong> mm</span>
+                        <span class="linea-cota"></span>
+                    </div>
+
+                    <div id="disco-3d" class="disco-3d"></div>
+
+                    <div class="cota-grosor">
+                        <span class="flecha-cota"></span>
+                        <span class="texto-cota">Grosor: <strong id="dato-grosor">--</strong> mm</span>
+                    </div>
+
+                    <div class="sombra-suelo"></div>
+                </div>
+            </div>
+
+        </div> <!-- CIERRE DEL CONTENEDOR AGRUPADOR -->
+
+        <!-- El botón de regresar se queda abajo, centrado -->
+        <button id="btn-regresar" class="boton-regreso">Regresar</button>
+
     </section>
 
     <!-- VISTA 3: CRÉDITOS -->
@@ -64,6 +102,11 @@
 
         <button id="btn-regresar-creditos" class="btn-creditos">Regresar</button>
     </section>
+
+    <!-- Cargamos la lógica POO al final -->
+    <script src="js/app.js"></script>
+</body>
+</html>
 
     <!-- Cargamos la lógica POO al final -->
     <script src="js/app.js"></script>
